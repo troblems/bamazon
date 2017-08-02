@@ -9,9 +9,10 @@ var Table = require("cli-table");
 
 var connection = mysql.createConnection({
   host: "localhost",
+  port: 8889,
   user: "root", //Your username
-  password: " ", //Your password
-  database: "bamazon"
+  password: "root", //Your password
+  database: "Bamazon"
 });
 
 function startBuy()
@@ -24,6 +25,10 @@ connection.query("SELECT * FROM Products", function(error, response)
    var table =
    ({
      head:["ItemID", "ProductName", "DepartmentName", "Price", "StockQuantity"]
+     forEach(function(response)
+     {
+        table.push(response)
+     })
    });
  });
 startBuy();
@@ -46,3 +51,4 @@ function runSearch()
 })
    }
 }
+runsearch();
